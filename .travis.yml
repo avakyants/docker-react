@@ -10,6 +10,6 @@ script:
     
 deploy:
     provider: openshift
-    user: "$OPENSHIFT_USER"
-    password: "$OPENSHIFT_PWD"
+    user: $OPENSHIFT_USER
+    password: $OPENSHIFT_PWD
     domain: openshiftdomain
