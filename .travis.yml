@@ -7,3 +7,9 @@ before_install:
     
 script:
     - docker run -e CI=true tema14/docker-react npm run test -- --coverage
+    
+deploy:
+    provider: openshift
+    user: "$OPENSHIFT_USER"
+    password: "$OPENSHIFT_PWD"
+    domain: openshiftdomain
