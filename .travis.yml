@@ -9,7 +9,14 @@ script:
     - docker run -e CI=true tema14/docker-react npm run test -- --coverage
     
 deploy:
-    provider: openshift
-    user: $OPENSHIFT_USER
-    password: $OPENSHIFT_PWD
-    domain: openshiftdomain
+    provider: elasticbeanstalk
+    region: "eu-north-1"
+    app: "docker-react"
+    env: "DockerReact-env"
+    bucket_name: "elasticbeanstalk-eu-north-1-273838816191" #S3
+    bucket_path: "docker-react"
+    on:
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key:
+        secure: “$AWS_SECRET_KEY"
